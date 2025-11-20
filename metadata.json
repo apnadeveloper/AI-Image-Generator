@@ -1,0 +1,5 @@
+{
+  "name": "Nano Banana Studio",
+  "description": "A powerful AI image studio featuring Text-to-Image generation using Imagen 3 and Image Editing using Gemini 2.5 Flash Image (Nano Banana).",
+  "requestFramePermissions": []
+}
