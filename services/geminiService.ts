@@ -1,4 +1,4 @@
-import { GoogleGenAI, Modality } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 
 // Initialize the client with the environment API key
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
@@ -55,9 +55,6 @@ export const editImage = async (imageBase64: string, imageMimeType: string, prom
             text: prompt,
           },
         ],
-      },
-      config: {
-        responseModalities: [Modality.IMAGE],
       },
     });
 
