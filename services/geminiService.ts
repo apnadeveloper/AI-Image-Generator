@@ -1,7 +1,8 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Initialize the client with the environment API key
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const getAiClient = () => {
+  return new GoogleGenAI({ apiKey: process.env.API_KEY });
+};
 
 /**
  * Generates an image using the Imagen 3 model (imagen-4.0-generate-001).
@@ -11,6 +12,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
  */
 export const generateImage = async (prompt: string, aspectRatio: string = '1:1'): Promise<string> => {
   try {
+    const ai = getAiClient();
     const response = await ai.models.generateImages({
       model: 'imagen-4.0-generate-001',
       prompt: prompt,
@@ -41,6 +43,7 @@ export const generateImage = async (prompt: string, aspectRatio: string = '1:1')
  */
 export const editImage = async (imageBase64: string, imageMimeType: string, prompt: string): Promise<string> => {
   try {
+    const ai = getAiClient();
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash-image',
       contents: {
